@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url("bg-img.png") ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative; /* Set body position to relative */
+        }
+        #container {
+            max-width: 400px;
+            margin: 14% auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            position: relative; /* Set container position to relative */
+            z-index: 1; /* Ensure container is above the result message */
+        }
+        #result {
+            position: absolute; /* Set result position to absolute */
+            top: 50%; /* Position result at the center vertically */
+            left: 50%; /* Position result at the center horizontally */
+            transform: translate(-50%, -50%); /* Center result */
+            background-color: rgba(255, 255, 255, 0.8); /* Set background color with opacity */
+            padding: 10px; /* Add padding */
+            border-radius: 5px; /* Add border radius */
+            display: none; /* Initially hide result */
+            z-index: 2; /* Ensure result is above container */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        label {
+            display: inline-block;
+            width: 120px; 
+            margin-bottom: 5px; 
+        }
+        input{
+          background-color: #e33c3c;
+          border-radius: 4px;
+          height: 22px;
+          margin: 5px;
+          width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Love Calculator</h2>
+        <label for="yourName">Your Name:</label>
+        <input type="text" id="yourName">
+        <br>
+        <label for="partnerName">Partner's Name:</label>
+        <input type="text" id="partnerName">
+        <br>
+        <button onclick="calculateLoveScore()">Calculate</button>
+        <div id="result">Result message will be displayed here.</div> <!-- Separate div for result message -->
+        <button onclick="resetForm()" type="reset">Try Again</button>
+    </div>
+
+    <script>
+        var resultDisplayed = false;
+
+        function calculateLoveScore() {
+            var yourName = document.getElementById("yourName").value;
+            var partnerName = document.getElementById("partnerName").value;
+
+            if (yourName.trim() === '' || partnerName.trim() === '') {
+                alert("Please fill in both your name and partner's name.");
+                return;
+            }
+
+            if (!resultDisplayed) {
+                var loveScore = Math.random() * 100;
+                loveScore = Math.floor(loveScore) + 1;
+                var resultMessage = "";
+
+                if (loveScore > 70) {
+                    resultMessage = "Your lovescore is " + loveScore + "%. You are in a perfect relationship just like Aditya and Geet.";
+                } else if (loveScore > 30) {
+                    resultMessage = "Your lovescore is " + loveScore + "%.There's potential for a beautiful relationship between you and" +partnerName ;
+                } else {
+                    resultMessage = "Your lovescore is " + loveScore + "%. Your connection with"+partnerName+" may need some time to grow. Stay patient.";
+                }
+
+                // Display the result
+                document.getElementById("result").innerText = resultMessage;
+                document.getElementById("result").style.display = "block";
+
+                resultDisplayed = true; // Set the flag to true
+            }
+        }
+
+        function resetForm() {
+            // Reset input fields and hide result
+            document.getElementById("yourName").value = "";
+            document.getElementById("partnerName").value = "";
+            document.getElementById("result").style.display = "none";
+
+            resultDisplayed = false; // Reset the flag
+        }
+    </script>
+</body>
+</html>
