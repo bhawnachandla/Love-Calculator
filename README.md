@@ -24,6 +24,7 @@ This is a simple web application that calculates a "love score" based on the nam
 
 ### Setup:
 - Clone this repository to your local machine.
+- Open the index.html file in a web browser to view the application.
 
 ### Contributions:
 Contributions to enhance the application's features, improve its design, or fix any issues are welcome. Feel free to fork this repository and submit pull requests.
