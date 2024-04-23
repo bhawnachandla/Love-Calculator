@@ -92,10 +92,14 @@
 
                 if (loveScore > 70) {
                     resultMessage = "Your lovescore is " + loveScore + "%. You are in a perfect relationship just like Aditya and Geet.";
-                } else if (loveScore > 30) {
+                } 
+                else if (loveScore > 50) {
                     resultMessage = "Your lovescore is " + loveScore + "%.There's potential for a beautiful relationship between you and" +partnerName ;
+                
+                else if (loveScore > 30) {
+                    resultMessage = "Your lovescore is " + loveScore + "%.Your connection with"+partnerName+" may need some time to grow. Stay patient." +partnerName ;
                 } else {
-                    resultMessage = "Your lovescore is " + loveScore + "%. Your connection with"+partnerName+" may need some time to grow. Stay patient.";
+                    resultMessage = "Your lovescore is " + loveScore + "%. You better find someone else"+ partnerName+" is not your soulmate";
                 }
 
                 // Display the result
